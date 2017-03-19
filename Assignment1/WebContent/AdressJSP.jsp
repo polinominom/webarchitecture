@@ -9,14 +9,22 @@
 		<title>Assignment1 - Adress Book</title>
 	</head>
 	<body>
-		<form action="AdressServlet/login" method="POST">
-			<p>Username:	<input type="text" name="username"/> </p>
-			<br>
-			<p>Password:	<input type="text" name="password"/> </p>
-			<br>
-			<input type="submit" title="Login" name="sign" value="Login"/><br>
-			<input type="submit" title="Register" name="sign" value="Register"/>
-		</form>
+		<c:if test="${sessionScope.userLogged == null}">
+			<form action="AdressServlet/login" method="POST">
+				<p>Username:	<input type="text" name="username"/> </p>
+				<br>
+				<p>Password:	<input type="text" name="password"/> </p>
+				<br>
+				<input type="submit" title="Login" name="sign" value="Login"/><br>
+				<input type="submit" title="Register" name="sign" value="Register"/>
+			</form>
+		</c:if>
+		<c:if test="${sessionScope.userLogged != null}">
+			<c:if test="${sessionScope.userLogged == true}">
+			<c:out value="${sessionScope.user.getUsername()}"></c:out>
+			</c:if>
+
+		</c:if>
 		<div>
 		</div>
 		

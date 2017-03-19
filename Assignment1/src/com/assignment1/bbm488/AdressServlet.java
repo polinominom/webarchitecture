@@ -43,7 +43,7 @@ public class AdressServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String log = "Hoppa\n";
+		String log = "Hoppa  " +request.getPathInfo()+"\n";
 		HttpSession session = request.getSession();
 		ServletContext applicationScope = request.getServletContext();
 		
@@ -70,7 +70,7 @@ public class AdressServlet extends HttpServlet {
 			
 			log += DebugController.outAllParamaters(request);
 			
-			response.getWriter().append(log);
+			//response.getWriter().append(log);
 		}
 	}
 	
@@ -92,7 +92,7 @@ public class AdressServlet extends HttpServlet {
 				
 				// TODO: redirect to another servlet?
 				log += "Login is Correct!\n";
-				
+				response.sendRedirect("/Assignment1/Record.jsp");
 				// send redirect to other servlet
 				//applicationScope.getRequestDispatcher("AdressEnter").forward(request, response);
 				
