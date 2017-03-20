@@ -1,0 +1,5 @@
+<Context>
+	<Manager pathname="">
+		<saveOnRestart>false</saveOnRestart>
+	</Manager>
+</Context>
